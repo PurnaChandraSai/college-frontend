@@ -1,0 +1,90 @@
+/* src/index.css (or src/styles/globals.css) */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.text-shadow {
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* ---------------------------
+   CSS variables used by tailwind.config.js
+   The variables store H, S, L parts so tailwind's hsl(var(--...)) works
+   --------------------------- */
+:root{
+  --radius: 0.5rem;
+
+  --background: 0 0% 100%;
+  --foreground: 222.2 47.4% 11.2%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 47.4% 11.2%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 47.4% 11.2%;
+
+  --primary: 222.2 47.4% 53.3%;
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 210 40% 96%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+
+  --muted: 210 40% 96%;
+  --muted-foreground: 215 20% 60%;
+
+  --accent: 340 82% 58%;
+  --accent-foreground: 210 40% 98%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 214 47% 91%;
+  --input: 210 40% 96%;
+  --ring: 215 84% 65%;
+
+  --chart-1: 252 82% 62%;
+  --chart-2: 200 82% 62%;
+  --chart-3: 120 82% 62%;
+  --chart-4: 40 82% 62%;
+  --chart-5: 300 82% 62%;
+}
+
+/* Dark mode values (toggle by adding .dark to <html> or <body>) */
+.dark{
+  --background: 222.2 47.4% 11.2%;
+  --foreground: 210 40% 98%;
+
+  --card: 222.2 47.4% 11.2%;
+  --card-foreground: 210 40% 98%;
+
+  --popover: 222.2 47.4% 11.2%;
+  --popover-foreground: 210 40% 98%;
+
+  --primary: 217.2 91.2% 59.8%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+
+  --secondary: 210 40% 12%;
+  --secondary-foreground: 210 40% 98%;
+
+  --muted: 216 15% 12%;
+  --muted-foreground: 210 40% 98%;
+
+  --accent: 300 76% 40%;
+  --accent-foreground: 210 40% 98%;
+
+  --destructive: 0 63% 50%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 216 15% 18%;
+  --input: 216 15% 18%;
+  --ring: 217 80% 60%;
+
+  --chart-1: 252 82% 72%;
+  --chart-2: 200 82% 72%;
+  --chart-3: 120 82% 72%;
+  --chart-4: 40 82% 72%;
+  --chart-5: 300 82% 72%;
+}
+
+/* small helpers (optional) */
+.container{ max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
