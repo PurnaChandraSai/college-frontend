@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-const API_URL = import.meta.env.VITE_API_URL;
+const VITE_API_URL = import.meta.env.VITE_API_URL;
 
 export default function Admission() {
   // ✅ Setup react-hook-form
@@ -19,7 +19,7 @@ export default function Admission() {
   const onSubmit = async (data) => {
     try {
       // send data to backend API
-      const response = await fetch(`${API_URL}/student`, {
+      const response = await fetch(`${VITE_API_URL}/student`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
