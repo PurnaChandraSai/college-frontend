@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 const VITE_API_URL = import.meta.env.VITE_API_URL;
 
+
 export default function Admission() {
   console.log("🔗 API URL:", VITE_API_URL);
   const {
@@ -15,7 +16,6 @@ export default function Admission() {
     reset,           // clears form after submit
   } = useForm();
 
- 
   const onSubmit = async (data) => {
     try {
       // send data to backend API
