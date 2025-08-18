@@ -6,25 +6,23 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 const VITE_API_URL = import.meta.env.VITE_API_URL;
 
-
 export default function Admission() {
   console.log("🔗 API URL:", VITE_API_URL);
   const {
-    register,        // to register inputs
-    handleSubmit,    // handles form submission
-    formState: { errors }, // handles validation errors
-    reset,           // clears form after submit
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
   } = useForm();
 
   const onSubmit = async (data) => {
     try {
-      // send data to backend API
       const response = await fetch(`${VITE_API_URL}/student`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          Username: data.username,  
-          PhoneNo: data.phoneNo,     
+          Username: data.username,
+          PhoneNo: data.phoneNo,
           email: data.email,
         }),
       });
@@ -33,8 +31,8 @@ export default function Admission() {
       console.log("Server response:", result);
 
       alert("Admission submitted successfully!");
-      window.location.href = "/"; 
-      reset(); // clears the form
+      window.location.href = "/";
+      reset();
     } catch (error) {
       console.error("Error submitting form:", error);
       alert("Failed to submit admission form.");
@@ -42,43 +40,35 @@ export default function Admission() {
   };
 
   return (
-    <div className="h-screen w-screen flex justify-center items-center bg-gray-900 relative">
-      {/* Background Image */}
-      <img
-        src="https://www.raghuenggcollege.com/wp-content/uploads/2024/07/college-overview.png"
-        alt="background"
-        className="absolute inset-0 w-full h-full object-cover"
-      />
-      <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+    <div className="h-screen w-screen flex justify-center items-center bg-gray-50 relative">
+      {/* Soft Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200"></div>
 
       {/* Form Card */}
-      <Card className="relative z-10 w-[360px] p-6 bg-white/10 backdrop-blur-md rounded-xl shadow-lg">
-        <CardHeader>
-          <CardTitle className="text-white text-center text-2xl">
+      <Card className="relative z-10 w-[400px] p-8 bg-white rounded-2xl shadow-2xl border border-gray-200">
+        <CardHeader className="mb-4">
+          <CardTitle className="text-gray-900 text-center text-3xl font-semibold font-['Inter']">
             Admission Form
           </CardTitle>
         </CardHeader>
 
-        {/* Form Content */}
-        <CardContent className="flex flex-col gap-4">
+        <CardContent className="flex flex-col gap-6">
           {/* Username Field */}
           <div>
-            <Label className="text-white">Username</Label>
+            <Label className="text-gray-700 font-medium">Username</Label>
             <Input
               placeholder="Enter your name"
               {...register("username", { required: true })}
-              className={errors.username ? "border-red-500" : ""}
+              className={`mt-1 ${errors.username ? "border-red-500" : "border-gray-300"} rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500`}
             />
             {errors.username && (
-              <p className="text-red-400 text-sm mt-1">
-                Username is required
-              </p>
+              <p className="text-red-500 text-sm mt-1">Username is required</p>
             )}
           </div>
 
           {/* Email Field */}
           <div>
-            <Label className="text-white">Email</Label>
+            <Label className="text-gray-700 font-medium">Email</Label>
             <Input
               type="email"
               placeholder="Enter your email"
@@ -86,30 +76,28 @@ export default function Admission() {
                 required: true,
                 pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/i,
               })}
-              className={errors.email ? "border-red-500" : ""}
+              className={`mt-1 ${errors.email ? "border-red-500" : "border-gray-300"} rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500`}
             />
             {errors.email && (
-              <p className="text-red-400 text-sm mt-1">
-                Valid email is required
-              </p>
+              <p className="text-red-500 text-sm mt-1">Valid email is required</p>
             )}
           </div>
 
           {/* Phone Number Field */}
           <div>
-            <Label className="text-white">Phone Number</Label>
+            <Label className="text-gray-700 font-medium">Phone Number</Label>
             <Input
               type="number"
               placeholder="Enter your number"
               {...register("phoneNo", {
                 required: true,
-                minLength: 10, // at least 10 digits
-                maxLength: 10, // exactly 10 digits
+                minLength: 10,
+                maxLength: 10,
               })}
-              className={errors.phoneNo ? "border-red-500" : ""}
+              className={`mt-1 ${errors.phoneNo ? "border-red-500" : "border-gray-300"} rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500`}
             />
             {errors.phoneNo && (
-              <p className="text-red-400 text-sm mt-1">
+              <p className="text-red-500 text-sm mt-1">
                 Phone number must be 10 digits
               </p>
             )}
@@ -118,13 +106,13 @@ export default function Admission() {
           {/* Submit Button */}
           <Button
             onClick={handleSubmit(onSubmit)}
-            className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white hover:scale-105 transition-transform"
+            className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-3 rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 font-semibold"
           >
             Submit
           </Button>
 
           {/* Footer Note */}
-          <p className="text-white text-center text-sm mt-2 opacity-80">
+          <p className="text-gray-500 text-center text-sm mt-2">
             Our management will contact you shortly.
           </p>
         </CardContent>

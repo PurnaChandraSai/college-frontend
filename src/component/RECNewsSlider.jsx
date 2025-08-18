@@ -13,8 +13,8 @@ export default function RECNewsSlider() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 2) % newsItems.length);
-    }, 2000);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % newsItems.length);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [newsItems.length]);
@@ -26,8 +26,8 @@ export default function RECNewsSlider() {
   ];
 
   return (
-    <section className="relative w-full bg-blue-900 text-white overflow-hidden py-16">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8 px-6">
+    <section className="relative w-full bg-[#1e3a8a] overflow-hidden py-16">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 px-6">
         
         {/* Left Side: Map */}
         <div className="w-full md:w-1/2 relative flex justify-center">
@@ -40,21 +40,24 @@ export default function RECNewsSlider() {
 
         {/* Right Side: News */}
         <div className="w-full md:w-1/2 relative">
-          <h2 className="text-3xl font-bold mb-2">NEWS</h2>
-          <p className="text-lg mb-6">Stay updated with latest NEWS</p>
+          <h2 className="text-3xl font-bold mb-2 text-white">NEWS</h2>
+          <p className="text-lg mb-6 text-white/80">
+            Stay updated with latest NEWS
+          </p>
 
-          <div className="grid grid-cols-2 gap-6">
+          <div className="flex gap-6">
             {visibleItems.map((item, index) => (
               <div
                 key={index}
-                className="bg-white text-black rounded-lg shadow-lg overflow-hidden transition-all duration-500"
+                className="relative bg-white text-black rounded-xl shadow-xl overflow-hidden transform transition-all duration-500 hover:scale-105"
+                style={{ width: "200px", height: "200px" }}
               >
                 <img
                   src={item.img}
                   alt={item.title}
-                  className="w-full aspect-square object-cover"
+                  className="w-full h-full object-cover rounded-xl"
                 />
-                <div className="p-3 text-sm font-semibold truncate">
+                <div className="absolute bottom-0 left-0 w-full p-3 bg-gradient-to-t from-black/40 to-transparent text-white font-semibold text-sm truncate">
                   {item.title}
                 </div>
               </div>

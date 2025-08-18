@@ -5,6 +5,9 @@ import './App.css'
 import { BrowserRouter, Route, Router, Routes } from 'react-router-dom'
 import Admission from './pages/Admission'
 import Home from './pages/Home'
+import CoursesSection from './pages/courses'
+
+import Achievements from './pages/News'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -16,8 +19,9 @@ function App() {
    
 
     <Route path='/' element={ <Home/>}/> 
-     <Route path='/admission' element={ <Admission/>} />
-
+     <Route path='/admissions' element={ <Admission/>} />
+    <Route path='/courses' element={<CoursesSection/>}/>
+   <Route path='/News' element={<Achievements/>}/>
    
    </Routes>
    </BrowserRouter>
