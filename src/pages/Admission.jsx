@@ -4,10 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-const VITE_API_URL = import.meta.env.VITE_API_URL;
+VITE_API_URL = import.meta.env.VITE_API_URL;
 
 export default function Admission() {
-  // ✅ Setup react-hook-form
+ 
   const {
     register,        // to register inputs
     handleSubmit,    // handles form submission
