@@ -43,7 +43,7 @@ export default function RecHighlights() {
   ];
 
   return (
-    <section className="w-full bg-gray-50 py-16 px-6">
+    <section className="w-full bg-sky-200 py-16 px-6">
       {/* Heading */}
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold text-gray-900 font-inter">

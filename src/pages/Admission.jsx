@@ -40,29 +40,33 @@ export default function Admission() {
   };
 
   return (
-    <div className="h-screen w-screen flex justify-center items-center bg-gray-50 relative">
+    <div className="min-h-screen w-full flex justify-center items-center bg-gray-50 relative px-4 overflow-x-hidden">
       {/* Soft Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200"></div>
 
       {/* Form Card */}
-      <Card className="relative z-10 w-[400px] p-8 bg-white rounded-2xl shadow-2xl border border-gray-200">
+      <Card className="relative z-10 w-full max-w-[400px] sm:max-w-[420px] p-6 sm:p-8 bg-white rounded-2xl shadow-2xl border border-gray-200">
         <CardHeader className="mb-4">
-          <CardTitle className="text-gray-900 text-center text-3xl font-semibold font-['Inter']">
+          <CardTitle className="text-gray-900 text-center text-2xl sm:text-3xl font-semibold font-['Inter']">
             Admission Form
           </CardTitle>
         </CardHeader>
 
-        <CardContent className="flex flex-col gap-6">
+        <CardContent className="flex flex-col gap-5 sm:gap-6">
           {/* Username Field */}
           <div>
             <Label className="text-gray-700 font-medium">Username</Label>
             <Input
               placeholder="Enter your name"
               {...register("username", { required: true })}
-              className={`mt-1 ${errors.username ? "border-red-500" : "border-gray-300"} rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500`}
+              className={`mt-1 ${
+                errors.username ? "border-red-500" : "border-gray-300"
+              } rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500`}
             />
             {errors.username && (
-              <p className="text-red-500 text-sm mt-1">Username is required</p>
+              <p className="text-red-500 text-sm mt-1">
+                Username is required
+              </p>
             )}
           </div>
 
@@ -76,10 +80,14 @@ export default function Admission() {
                 required: true,
                 pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/i,
               })}
-              className={`mt-1 ${errors.email ? "border-red-500" : "border-gray-300"} rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500`}
+              className={`mt-1 ${
+                errors.email ? "border-red-500" : "border-gray-300"
+              } rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500`}
             />
             {errors.email && (
-              <p className="text-red-500 text-sm mt-1">Valid email is required</p>
+              <p className="text-red-500 text-sm mt-1">
+                Valid email is required
+              </p>
             )}
           </div>
 
@@ -94,7 +102,9 @@ export default function Admission() {
                 minLength: 10,
                 maxLength: 10,
               })}
-              className={`mt-1 ${errors.phoneNo ? "border-red-500" : "border-gray-300"} rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500`}
+              className={`mt-1 ${
+                errors.phoneNo ? "border-red-500" : "border-gray-300"
+              } rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500`}
             />
             {errors.phoneNo && (
               <p className="text-red-500 text-sm mt-1">

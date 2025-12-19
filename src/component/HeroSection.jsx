@@ -17,7 +17,7 @@ export default function HeroSection() {
       {/* Overlay for content */}
       <div className="absolute inset-0 flex flex-col">
         {/* Navbar */}
-        <Navbar />
+       
 
         {/* Hero Content - Centered */}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
